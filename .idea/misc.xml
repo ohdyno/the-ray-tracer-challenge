@@ -4,7 +4,15 @@
     <elmProjects />
     <settings elmCompilerPath="" elmFormatPath="" elmTestPath="" isElmFormatOnSaveEnabled="false" />
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/the-ray-tracer-challenge-java/pom.xml" />
+      </list>
+    </option>
   </component>
 </project>
