@@ -9,11 +9,22 @@ public class TuplesTest {
     @Test
     @DisplayName("A tuple with w=1.0 is a point")
     void aTupleThatIsAPoint() {
-        final Tuple tuple = new Tuple(4.3, -4.2, 3.1, 1.0);
+        final Tuple tuple = new Tuple(4.3, -4.2, 3.1, Tuple.POINT);
         assertEquals(4.3, tuple.getX(), 0.00001);
         assertEquals(-4.2, tuple.getY(), 0.00001);
         assertEquals(3.1, tuple.getZ(), 0.00001);
         assertTrue(tuple.isAPoint());
         assertFalse(tuple.isAVector());
+    }
+
+    @Test
+    @DisplayName("A tuple with w=0.0 is a vector")
+    void aTupleThatIsAVector() {
+        final Tuple tuple = new Tuple(4.3, -4.2, 3.1, Tuple.VECTOR);
+        assertEquals(4.3, tuple.getX(), 0.00001);
+        assertEquals(-4.2, tuple.getY(), 0.00001);
+        assertEquals(3.1, tuple.getZ(), 0.00001);
+        assertTrue(tuple.isAVector());
+        assertFalse(tuple.isAPoint());
     }
 }
