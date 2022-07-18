@@ -43,7 +43,11 @@ public class Tuple {
     }
 
     public boolean isAVector() {
-        return !this.isAPoint();
+        return isEqual(w, VECTOR);
+    }
+
+    public Tuple add(Tuple tuple) {
+        return new Tuple(tuple.x + x, tuple.y + y, tuple.z + z, tuple.w + w);
     }
 
     @Override
@@ -73,4 +77,7 @@ public class Tuple {
         return Math.abs(a - b) < EPSILON;
     }
 
+    public boolean isValid() {
+        return isAPoint() || isAVector();
+    }
 }
