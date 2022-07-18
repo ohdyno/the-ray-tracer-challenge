@@ -27,4 +27,12 @@ public class TuplesTest {
         assertTrue(tuple.isAVector());
         assertFalse(tuple.isAPoint());
     }
+
+    @Test
+    @DisplayName("Two tuples are equal if they are the same type and their coordinates are the same")
+    void tupleEquality() {
+        assertNotEquals(Tuple.vector(4.3, -4.2, 3.1), Tuple.point(4.3, -4.2, 3.1));
+        assertEquals(Tuple.vector(4.3, -4.2, 3.1), Tuple.vector(4.3, -4.2, 3.1));
+    }
+
 }
