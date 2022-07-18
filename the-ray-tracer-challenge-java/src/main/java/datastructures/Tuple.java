@@ -80,4 +80,8 @@ public class Tuple {
     public boolean isValid() {
         return isAPoint() || isAVector();
     }
+
+    public Tuple subtract(Tuple tuple) {
+        return new Tuple(x - tuple.x, y - tuple.y, z - tuple.z, w - tuple.w);
+    }
 }

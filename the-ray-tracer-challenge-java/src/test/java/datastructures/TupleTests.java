@@ -54,8 +54,8 @@ public class TupleTests {
         @Test
         @DisplayName("Adding a vector and a point results in a point with updated components.")
         void oneVectorAndOnePoint() {
-            Tuple resultant = Tuple.vector(4.3, -4.2, 3.1).add(Tuple.point(1.0, 1.0, 0.1));
-            assertEquals(resultant, Tuple.point(5.3, -3.2, 3.2));
+            assertEquals(Tuple.vector(4.3, -4.2, 3.1).add(Tuple.point(1.0, 1.0, 0.1)), Tuple.point(5.3, -3.2, 3.2));
+            assertEquals(Tuple.point(4.3, -4.2, 3.1).add(Tuple.vector(1.0, 1.0, 0.1)), Tuple.point(5.3, -3.2, 3.2));
         }
 
         @Test
@@ -63,6 +63,38 @@ public class TupleTests {
         void twoPoints() {
             Tuple resultant = Tuple.point(4.3, -4.2, 3.1).add(Tuple.point(1.0, 1.0, 0.1));
             assertFalse(resultant.isValid(), "Adding two points is expected to result in an invalid tuple.");
+        }
+    }
+
+    @Nested
+    @DisplayName("Subtracting tuples.")
+    class SubtractionBehaviorTests {
+        @Test
+        @DisplayName("Subtracting two points results in the displacement vector.")
+        void twoPoints() {
+            Tuple resultant = Tuple.point(4.3, -4.2, 3.1).subtract(Tuple.point(1.0, 1.0, 0.1));
+            assertEquals(resultant, Tuple.vector(3.3, -5.2, 3.0));
+        }
+
+        @Test
+        @DisplayName("Subtracting a vector from a point results in a point with updated components.")
+        void onePointAndOneVector() {
+            Tuple resultant = Tuple.point(4.3, -4.2, 3.1).subtract(Tuple.vector(1.0, 1.0, 0.1));
+            assertEquals(resultant, Tuple.point(3.3, -5.2, 3.0));
+        }
+
+        @Test
+        @DisplayName("Subtracting a vector from another vector results in a vector with updated components.")
+        void twoVectors() {
+            Tuple resultant = Tuple.vector(4.3, -4.2, 3.1).subtract(Tuple.vector(1.0, 1.0, 0.1));
+            assertEquals(resultant, Tuple.vector(3.3, -5.2, 3.0));
+        }
+
+        @Test
+        @DisplayName("Subtracting a point from a vector results in an invalid tuple.")
+        void invalid() {
+            Tuple resultant = Tuple.vector(4.3, -4.2, 3.1).subtract(Tuple.point(1.0, 1.0, 0.1));
+            assertFalse(resultant.isValid());
         }
     }
 }
