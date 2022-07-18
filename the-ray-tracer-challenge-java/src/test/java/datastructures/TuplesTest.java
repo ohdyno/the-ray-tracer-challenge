@@ -9,7 +9,7 @@ public class TuplesTest {
     @Test
     @DisplayName("A tuple with w=1.0 is a point")
     void aTupleThatIsAPoint() {
-        final Tuple tuple = new Tuple(4.3, -4.2, 3.1, Tuple.POINT);
+        final Tuple tuple = Tuple.point(4.3, -4.2, 3.1);
         assertEquals(4.3, tuple.getX(), 0.00001);
         assertEquals(-4.2, tuple.getY(), 0.00001);
         assertEquals(3.1, tuple.getZ(), 0.00001);
@@ -20,7 +20,7 @@ public class TuplesTest {
     @Test
     @DisplayName("A tuple with w=0.0 is a vector")
     void aTupleThatIsAVector() {
-        final Tuple tuple = new Tuple(4.3, -4.2, 3.1, Tuple.VECTOR);
+        final Tuple tuple = Tuple.vector(4.3, -4.2, 3.1);
         assertEquals(4.3, tuple.getX(), 0.00001);
         assertEquals(-4.2, tuple.getY(), 0.00001);
         assertEquals(3.1, tuple.getZ(), 0.00001);

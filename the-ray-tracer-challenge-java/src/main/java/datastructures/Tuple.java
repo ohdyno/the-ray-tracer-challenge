@@ -9,11 +9,19 @@ public class Tuple {
     private final double z;
     private final double w;
 
-    public Tuple(double x, double y, double z, double w) {
+    private Tuple(double x, double y, double z, double w) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.w = w;
+    }
+
+    public static Tuple point(double x, double y, double z) {
+        return new Tuple(x, y, z, Tuple.POINT);
+    }
+
+    public static Tuple vector(double x, double y, double z) {
+        return new Tuple(x, y, z, Tuple.VECTOR);
     }
 
     public double getX() {
