@@ -26,6 +26,10 @@ public class Tuple {
         return new Tuple(x, y, z, Tuple.VECTOR);
     }
 
+    public static Tuple tuple(double x, double y, double z, double w) {
+        return new Tuple(x, y, z, w);
+    }
+
     public double getX() {
         return x;
     }
@@ -69,7 +73,7 @@ public class Tuple {
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
-                ", type=" + (isEqual(w, VECTOR) ? "vector" : "point") +
+                ", w=" + w +
                 '}';
     }
 
@@ -83,5 +87,9 @@ public class Tuple {
 
     public Tuple subtract(Tuple tuple) {
         return new Tuple(x - tuple.x, y - tuple.y, z - tuple.z, w - tuple.w);
+    }
+
+    public Tuple negate() {
+        return new Tuple(-x, -y, -z, -w);
     }
 }

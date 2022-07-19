@@ -97,4 +97,14 @@ public class TupleTests {
             assertFalse(resultant.isValid());
         }
     }
+
+    @Nested
+    @DisplayName("Negating tuples.")
+    class NegationBehaviorTests {
+        @Test
+        @DisplayName("Negating a tuple negates the individual components.")
+        void negatingATuple() {
+            assertEquals(Tuple.tuple(-4.3, 4.2, -3.1, 1.0), Tuple.tuple(4.3, -4.2, 3.1, -1.0).negate());
+        }
+    }
 }
