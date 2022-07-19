@@ -92,4 +92,12 @@ public class Tuple {
     public Tuple negate() {
         return new Tuple(-x, -y, -z, -w);
     }
+
+    public Tuple multiply(double value) {
+        return new Tuple(x * value, y * value, z * value, w * value);
+    }
+
+    public Tuple divide(double value) {
+        return new Tuple(x / value, y / value, z / value, w / value);
+    }
 }

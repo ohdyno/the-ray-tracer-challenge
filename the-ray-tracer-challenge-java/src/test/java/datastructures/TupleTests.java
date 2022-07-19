@@ -107,4 +107,20 @@ public class TupleTests {
             assertEquals(Tuple.tuple(-4.3, 4.2, -3.1, 1.0), Tuple.tuple(4.3, -4.2, 3.1, -1.0).negate());
         }
     }
+
+    @Nested
+    @DisplayName("Scalar Multiplication and Division.")
+    class ScalarOperations {
+        @Test
+        @DisplayName("Multiplying a scalar updates the individual components.")
+        void multiplication() {
+            assertEquals(Tuple.tuple(3.5, -2 * 3.5, 3 * 3.5, -4 * 3.5), Tuple.tuple(1, -2, 3, -4).multiply(3.5));
+        }
+
+        @Test
+        @DisplayName("Dividing a scalar updates the individual components.")
+        void division() {
+            assertEquals(Tuple.tuple(1, -2, 3, -4), Tuple.tuple(3.5, -2 * 3.5, 3 * 3.5, -4 * 3.5).divide(3.5));
+        }
+    }
 }
