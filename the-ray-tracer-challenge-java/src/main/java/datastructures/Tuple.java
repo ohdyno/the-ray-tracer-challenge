@@ -100,4 +100,8 @@ public class Tuple {
     public Tuple divide(double value) {
         return new Tuple(x / value, y / value, z / value, w / value);
     }
+
+    public double getMagnitude() {
+        return Math.sqrt(x * x + y * y + z * z);
+    }
 }

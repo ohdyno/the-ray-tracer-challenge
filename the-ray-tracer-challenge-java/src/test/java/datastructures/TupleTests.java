@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TupleTests {
 
+    public static final double DELTA = 0.00001;
+
     @Nested
     @DisplayName("A tuple exhibits behaviors like a value.")
     class AsAValue {
@@ -15,9 +17,9 @@ public class TupleTests {
         @DisplayName("A tuple with w=1.0 is a point.")
         void aTupleThatIsAPoint() {
             final Tuple tuple = Tuple.point(4.3, -4.2, 3.1);
-            assertEquals(4.3, tuple.getX(), 0.00001);
-            assertEquals(-4.2, tuple.getY(), 0.00001);
-            assertEquals(3.1, tuple.getZ(), 0.00001);
+            assertEquals(4.3, tuple.getX(), DELTA);
+            assertEquals(-4.2, tuple.getY(), DELTA);
+            assertEquals(3.1, tuple.getZ(), DELTA);
             assertTrue(tuple.isAPoint());
             assertFalse(tuple.isAVector());
         }
@@ -26,9 +28,9 @@ public class TupleTests {
         @DisplayName("A tuple with w=0.0 is a vector.")
         void aTupleThatIsAVector() {
             final Tuple tuple = Tuple.vector(4.3, -4.2, 3.1);
-            assertEquals(4.3, tuple.getX(), 0.00001);
-            assertEquals(-4.2, tuple.getY(), 0.00001);
-            assertEquals(3.1, tuple.getZ(), 0.00001);
+            assertEquals(4.3, tuple.getX(), DELTA);
+            assertEquals(-4.2, tuple.getY(), DELTA);
+            assertEquals(3.1, tuple.getZ(), DELTA);
             assertTrue(tuple.isAVector());
             assertFalse(tuple.isAPoint());
         }
@@ -123,4 +125,20 @@ public class TupleTests {
             assertEquals(Tuple.tuple(1, -2, 3, -4), Tuple.tuple(3.5, -2 * 3.5, 3 * 3.5, -4 * 3.5).divide(3.5));
         }
     }
+
+    @Nested
+    @DisplayName("Magnitude Calculations.")
+    class MagnitudeCalculations {
+        @Test
+        @DisplayName("Computing the magnitude of vector(1, 0, 0)")
+        void multiplication() {
+            assertEquals(1.0, Tuple.vector(1, 0, 0).getMagnitude(), DELTA);
+            assertEquals(1.0, Tuple.vector(0, 1, 0).getMagnitude(), DELTA);
+            assertEquals(1.0, Tuple.vector(0, 0, 1).getMagnitude(), DELTA);
+            assertEquals(Math.sqrt(14), Tuple.vector(1, 2, 3).getMagnitude(), DELTA);
+            assertEquals(Math.sqrt(14), Tuple.vector(-1, -2, -3).getMagnitude(), DELTA);
+        }
+    }
+
+
 }
