@@ -10,7 +10,7 @@ public class TupleTests {
 
     @Nested
     @DisplayName("A tuple exhibits behaviors like a value.")
-    class ValueBehaviorTests {
+    class AsAValue {
         @Test
         @DisplayName("A tuple with w=1.0 is a point.")
         void aTupleThatIsAPoint() {
@@ -43,7 +43,7 @@ public class TupleTests {
 
     @Nested
     @DisplayName("Adding tuples.")
-    class AdditionBehaviorTests {
+    class Addition {
         @Test
         @DisplayName("Adding two vectors results in a vector with updated components.")
         void twoVectors() {
@@ -68,7 +68,7 @@ public class TupleTests {
 
     @Nested
     @DisplayName("Subtracting tuples.")
-    class SubtractionBehaviorTests {
+    class Subtraction {
         @Test
         @DisplayName("Subtracting two points results in the displacement vector.")
         void twoPoints() {
@@ -100,7 +100,7 @@ public class TupleTests {
 
     @Nested
     @DisplayName("Negating tuples.")
-    class NegationBehaviorTests {
+    class Negation {
         @Test
         @DisplayName("Negating a tuple negates the individual components.")
         void negatingATuple() {
