@@ -104,4 +104,8 @@ public class Tuple {
     public double getMagnitude() {
         return Math.sqrt(x * x + y * y + z * z);
     }
+
+    public Tuple normalize() {
+        return this.divide(this.getMagnitude());
+    }
 }

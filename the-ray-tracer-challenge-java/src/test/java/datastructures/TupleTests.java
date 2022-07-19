@@ -140,5 +140,27 @@ public class TupleTests {
         }
     }
 
+    @Nested
+    @DisplayName("Normalization.")
+    class Normalization {
+        @Test
+        @DisplayName("Normalizing vectors update the components properly.")
+        void normalizing() {
+            assertEquals(Tuple.vector(1, 0, 0), Tuple.vector(4, 0, 0).normalize());
+            final double magnitude = Math.sqrt(14);
+            assertEquals(Tuple.vector(1 / magnitude, 2 / magnitude, 3 / magnitude), Tuple.vector(1, 2, 3).normalize());
+        }
+
+        @Test
+        @DisplayName("A normalized vector is always an unit vector.")
+        void alwaysAnUnitVector() {
+            final Tuple notAUnitVector = Tuple.vector(1, 2, 3);
+            assertTrue(notAUnitVector.getMagnitude() > 1.0);
+
+            final Tuple normalizedVector = notAUnitVector.normalize();
+            assertEquals(1.0, normalizedVector.getMagnitude(), DELTA);
+        }
+    }
+
 
 }
