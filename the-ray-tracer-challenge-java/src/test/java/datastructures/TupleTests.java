@@ -59,13 +59,6 @@ public class TupleTests {
             assertEquals(Tuple.vector(4.3, -4.2, 3.1).add(Tuple.point(1.0, 1.0, 0.1)), Tuple.point(5.3, -3.2, 3.2));
             assertEquals(Tuple.point(4.3, -4.2, 3.1).add(Tuple.vector(1.0, 1.0, 0.1)), Tuple.point(5.3, -3.2, 3.2));
         }
-
-        @Test
-        @DisplayName("Adding two points results in an invalid tuple.")
-        void twoPoints() {
-            Tuple resultant = Tuple.point(4.3, -4.2, 3.1).add(Tuple.point(1.0, 1.0, 0.1));
-            assertFalse(resultant.isValid(), "Adding two points is expected to result in an invalid tuple.");
-        }
     }
 
     @Nested
@@ -90,13 +83,6 @@ public class TupleTests {
         void twoVectors() {
             Tuple resultant = Tuple.vector(4.3, -4.2, 3.1).subtract(Tuple.vector(1.0, 1.0, 0.1));
             assertEquals(resultant, Tuple.vector(3.3, -5.2, 3.0));
-        }
-
-        @Test
-        @DisplayName("Subtracting a point from a vector results in an invalid tuple.")
-        void invalid() {
-            Tuple resultant = Tuple.vector(4.3, -4.2, 3.1).subtract(Tuple.point(1.0, 1.0, 0.1));
-            assertFalse(resultant.isValid());
         }
     }
 
