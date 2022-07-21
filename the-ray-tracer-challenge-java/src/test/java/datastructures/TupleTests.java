@@ -148,5 +148,17 @@ public class TupleTests {
         }
     }
 
+    @Nested
+    @DisplayName("Dot Products.")
+    class DotProducts {
+        @Test
+        @DisplayName("The dot product of two vectors")
+        void twoVectors() {
+            final Tuple a = Tuple.vector(1, 2, 3);
+            final Tuple b = Tuple.vector(2, 3, 4);
+            assertEquals(20.0, a.dot(b), DELTA);
+        }
+    }
+
 
 }

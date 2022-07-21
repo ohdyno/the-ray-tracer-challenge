@@ -104,4 +104,8 @@ public class Tuple {
     public Tuple normalize() {
         return this.divide(this.getMagnitude());
     }
+
+    public double dot(Tuple vector) {
+        return x * vector.x + y * vector.y + z * vector.z + w * vector.w;
+    }
 }
