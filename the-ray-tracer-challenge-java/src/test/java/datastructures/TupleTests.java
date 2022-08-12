@@ -160,5 +160,18 @@ public class TupleTests {
         }
     }
 
+    @Nested
+    @DisplayName("Cross Products.")
+    class CrossProducts {
+        @Test
+        @DisplayName("The cross product of two vectors")
+        void twoVectors() {
+            final Tuple a = Tuple.vector(1, 2, 3);
+            final Tuple b = Tuple.vector(2, 3, 4);
+            assertEquals(Tuple.vector(-1, 2, -1), a.cross(b));
+            assertEquals(Tuple.vector(1, -2, 1), b.cross(a));
+        }
+    }
+
 
 }

@@ -108,4 +108,12 @@ public class Tuple {
     public double dot(Tuple vector) {
         return x * vector.x + y * vector.y + z * vector.z + w * vector.w;
     }
+
+    public Tuple cross(Tuple vector) {
+        return Tuple.vector(
+                y * vector.z - z * vector.y,
+                z* vector.x - x * vector.z,
+                x* vector.y - y * vector.x
+        );
+    }
 }
